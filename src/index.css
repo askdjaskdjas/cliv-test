@@ -15,3 +15,11 @@ body{
     font-weight: 200;
 }
 
+input[type="text"]:focus ~ .input-text{
+    @apply text-[#10a37f] bg-[#fff] transform -translate-y-9 -translate-x-4;
+}
+
+input[type="password"]:focus ~ .input-text{
+    @apply text-[#10a37f] bg-[#fff] transform -translate-y-9 -translate-x-4;
+}
+

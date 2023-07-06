@@ -1,8 +1,7 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import {Auth, Provider, provider} from '../firebase-config'
-import { signInWithPopup } from 'firebase/auth'
+
 const navigation = [
     { name: 'CLIV·AI', href: '/', current: true },
     { name: 'Generate', href: '/generate', current: false },
@@ -15,11 +14,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const signIn = () => {
-    signInWithPopup(Auth, provider)
-      .then(res => console.log("You are logged in."))
-      .catch(err => console.log(err))
-  }
+  
     return (
         <Disclosure as="nav" className="border-[#F4F4F6] border-b-[1px] bg-[#FAFAFC]">
             {({ open }) => (
