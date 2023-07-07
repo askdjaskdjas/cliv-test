@@ -1,4 +1,6 @@
 import { Fragment } from 'react'
+import {Auth} from '../firebase-config'
+import {useAuthState} from 'react-firebase-hooks/auth'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -14,7 +16,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  
+  const [user] = useAuthState(Auth)
     return (
         <Disclosure as="nav" className="border-[#F4F4F6] border-b-[1px] bg-[#FAFAFC]">
             {({ open }) => (
@@ -156,7 +158,7 @@ export default function Navbar() {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        onClick={signIn}
+                                                        
                                                         href="#"
                                                         className={classNames(active ? 'duration-200 text-[#999999] bg-[#ECECF1]' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >

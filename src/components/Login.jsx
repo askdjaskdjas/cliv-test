@@ -1,11 +1,11 @@
 import React from 'react';
-import {Auth, Provider,provider} from '../firebase-config'
+import {Auth, Provider} from '../firebase-config'
 import { signInWithPopup } from 'firebase/auth'
 const Login = () => {
-  const signIn = () => {
-    signInWithPopup(Auth, provider)
-      .then(res => console.log("You are logged in."))
-      .catch(err => console.log(err))
+  const signIn = async () => {
+    signInWithPopup(Auth, Provider)
+    .then(res => console.log("You are logged in."))
+    .catch(err => console.log(err))
   }
   return (
     <div className='text-center items-center justify-center flex flex-col'>
@@ -60,7 +60,7 @@ const Login = () => {
           </span>
         </div>
         <div className='flex flex-col p-6'>
-            <button className='border-[#6F7780] text-[#2D333A]  hover:bg-[#E5E5E5] duration-200 mb-4 rounded-sm p-2 border-[1px]'>
+            <button onClick={signIn} className='border-[#6F7780] text-[#2D333A]  hover:bg-[#E5E5E5] duration-200 mb-4 rounded-sm p-2 border-[1px]'>
                 Login with Github
                 <img
               className='inline w-6 h-6 ml-2'
@@ -68,7 +68,7 @@ const Login = () => {
               alt='GitHub Icon'
                />
                 </button>
-            <button src="#" onClick={signIn} className='border-[#6F7780] text-[#2D333A] hover:bg-[#E5E5E5] duration-200  rounded-sm p-2  border-[1px]'>
+            <button className='border-[#6F7780] text-[#2D333A] hover:bg-[#E5E5E5] duration-200  rounded-sm p-2  border-[1px]'>
                 Login with Google
                 <img
               className='inline  w-6 h-6 ml-2'
